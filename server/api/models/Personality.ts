@@ -14,7 +14,7 @@ import { PersonalityQualityAssoc } from './PersonalityQualityAssoc';
     timestamps: false,
 })
 export class Personality extends Model<Personality> {
-    @Length({min: 4, max: 4})
+    @Length({ min: 4, max: 4 })
     @Column({
         defaultValue: null,
         primaryKey: true,
@@ -27,13 +27,13 @@ export class Personality extends Model<Personality> {
 
     @Column
     name_male_en: string;
-    
+
     @Column
     name_male_es: string;
 
     @Column
     name_female: string;
-    
+
     @Column
     name_female_en: string;
 
@@ -42,7 +42,7 @@ export class Personality extends Model<Personality> {
 
     @Column
     mantra: string;
-    
+
     @Column
     mantra_en: string;
 
@@ -59,7 +59,10 @@ export class Personality extends Model<Personality> {
     quote_es: string;
 
     @Column({ type: DataType.INTEGER, references: { model: PersonalityType, key: 'id' } })
-    type: number; 
+    type: number;
+
+    @Column
+    background_url: string;
 
     @BelongsTo(() => PersonalityType, "type")
     PersonalityType?: PersonalityType;

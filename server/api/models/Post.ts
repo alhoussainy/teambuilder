@@ -67,5 +67,9 @@ export class Post extends Model<Post> {
     @DeletedAt
     deleted_at: Date;
 
+    // Image content
+    @Column(DataType.VIRTUAL)
+    image_content:any = null;
+
     
 }

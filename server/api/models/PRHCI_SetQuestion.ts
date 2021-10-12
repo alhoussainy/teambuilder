@@ -36,6 +36,9 @@ export class PRHCI_SetQuestion extends Model<PRHCI_SetQuestion> {
     @Column
     isMultiAnswer: boolean;
 
+    @Column
+    orderNumber: number;
+
     @CreatedAt
     created_at: Date;
 

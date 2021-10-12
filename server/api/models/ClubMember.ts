@@ -14,7 +14,7 @@ import { Company } from './Company';
         {
             unique: true,
             fields: ['user_id', 'club_id'],
-        },
+        }, 
     ],
 })
 export default class ClubMember extends Model<ClubMember> {
@@ -32,7 +32,7 @@ export default class ClubMember extends Model<ClubMember> {
 
     @BelongsTo(() => Club)
     Club?: Club;
-
+    
     @BelongsTo(() => User)
     User?: User;
 }

@@ -5,6 +5,7 @@ import {
     DataType,
     BelongsToMany, NotNull, AllowNull, CreatedAt, UpdatedAt, DeletedAt, HasMany, Length, ForeignKey,
 } from 'sequelize-typescript';
+import { Personality } from './Personality';
 import { PersonalityType } from './PersonalityType';
 
 @Table
@@ -16,6 +17,7 @@ export class PersonalityQuizzQuestions extends Model<PersonalityQuizzQuestions> 
         autoIncrement: true,
     })
     id: number;
+
 
     @Column
     question: string;
@@ -35,6 +37,7 @@ export class PersonalityQuizzQuestions extends Model<PersonalityQuizzQuestions> 
         type: DataType.STRING(1)
     })
     false_letter: string;
+
 
 
 

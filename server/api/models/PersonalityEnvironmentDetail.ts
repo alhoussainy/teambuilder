@@ -21,73 +21,73 @@ export class PersonalityEnvironmentDetail extends Model<PersonalityEnvironmentDe
     
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_en: string;
     
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_es: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_employee: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_employee_en: string;
     
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_employee_es: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_colleague: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_colleague_en: string;
     
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_colleague_es: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_manager: string;
 
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_manager_en: string;
     
     @AllowNull(true)
     @Column({
-        type: DataType.STRING(1500)
+        type: DataType.TEXT
     })
     description_as_manager_es: string;
 }

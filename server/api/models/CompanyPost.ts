@@ -6,18 +6,12 @@ import {
     UpdatedAt,
     DeletedAt,
     DataType,
-    BelongsToMany,
     BelongsTo,
     ForeignKey,
-    HasMany,
-    Unique,
-    NotNull,
-    AllowNull, HasOne
+    AllowNull
 } from 'sequelize-typescript';
 import { Company } from './Company';
-import { FRH_PostCheckList } from './FRH_PostCheckList';
 import { Service } from './Service';
-import { User } from './User'
 
 
 @Table
@@ -30,11 +24,11 @@ export class CompanyPost extends Model<CompanyPost> {
     id: string;
 
     @Column({ type: DataType.UUID, references: { model: Company, key: 'id' } })
-    company_id: string; 
+    company_id: string;
 
     @ForeignKey(() => Service)
     @Column({ type: DataType.INTEGER, references: { model: Service, key: 'id' } })
-    service_id: number; 
+    service_id: number;
 
     @AllowNull(false)
     @Column

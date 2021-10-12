@@ -41,7 +41,6 @@ export class Lunchroulette extends Model<Lunchroulette> {
     @Column
     type: number;
 
-
     @AllowNull(false)
     @Default(0)
     @Column

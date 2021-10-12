@@ -6,8 +6,6 @@ import logger from '../../common/logger';
 
 export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     const token = <string>req.get('Authorization');
-
-
     let jwtPayload;
     try {
         jwtPayload = <any>jwt.verify(token, config.session_secret);
@@ -31,7 +29,6 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     });
 
     res.setHeader('token', newToken);
-
     next();
 }
 

@@ -21,7 +21,7 @@ export class UserMessages extends Model<UserMessages> {
     id: string;
 
     @Column({ type: DataType.UUID, references: { model: Company, key: 'id' } })
-    company_id: string;
+    company_id: string; 
 
     @Column
     content: string;
@@ -33,7 +33,7 @@ export class UserMessages extends Model<UserMessages> {
     recipient_id: string;
 
     @Column
-    deleted: boolean;
+    deleted: boolean;   
 
     @BelongsTo(() => User, 'recipient_id')
     Recipient?: User;

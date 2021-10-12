@@ -29,6 +29,9 @@ export class PRHCI_InterviewSet extends Model<PRHCI_InterviewSet> {
     @ForeignKey(() => PRHCI_QuestionSet)
     questionset_id: string; // What model is linked to it
 
+    @Column
+    orderNumber: number;
+
     @BelongsTo(() => PRHCI_QuestionSet)
     QuestionSets?: PRHCI_QuestionSet;
 

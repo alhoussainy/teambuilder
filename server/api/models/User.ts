@@ -33,6 +33,7 @@ import { Offboarding } from './Offboarding'
 import { UserContractType } from './UserContractType';
 import { RHCS_CampaignAnswers } from './RHCS_CampaignAnswers';
 import { UserProcessState } from './UserProcessState';
+import { EnvironnementScoreDetail } from './EnvironnementScoreDetail';
 
 
 @Table
@@ -186,5 +187,9 @@ export class User extends Model<User> {
 
     @DeletedAt
     deleted_at: Date;
+
+    // Avatar content
+    @Column(DataType.VIRTUAL)
+    avatar_content:any = null;
 
 }

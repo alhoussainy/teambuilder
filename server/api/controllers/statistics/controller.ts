@@ -4,15 +4,10 @@ import { Company } from '../../models/Company';
 import { UserMessages } from '../../models/UserMessages';
 import { CompanyPersonalityTest } from '../../models/CompanyPersonalityTest';
 import { User } from '../../models/User';
-import config from '../../../common/config';
-import * as bcrypt from 'bcryptjs';
 import { Post } from "../../models/Post";
-import { Comment } from '../../models/Comment';
-import { Like } from '../../models/Like';
 import { Club } from '../../models/Club';
 import { Poll } from '../../models/Poll';
 import moment from 'moment';
-import sequelize from '../../../sequelize';
 import { PRH_UserInterview } from '../../models/PRH_UserInterview';
 
 

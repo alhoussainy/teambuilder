@@ -2,8 +2,6 @@ import { Request, Response } from 'express';
 import { ApiController } from '../api/controller';
 import { Company } from '../../models/Company';
 import { User } from '../../models/User';
-import config from '../../../common/config';
-import * as bcrypt from 'bcryptjs';
 import { Poll } from '../../models/Poll';
 import { PollAnswer } from '../../models/PollAnswer';
 import { CompanySubscription } from '../../models/CompanySubscription';
@@ -16,24 +14,18 @@ import ClubMember from '../../models/ClubMember';
 
 
 export class Controller extends ApiController {
-    async test(req: Request, res: Response): Promise<void> {
-        try {
-            const item = await Company.findAll();
-            super.found(req, res, item);
-        } catch (e) {
-            super.error(req, res, 'could not find any company', e);
-        }
-    }
 
     async details(req: Request, res: Response): Promise<void> {
         try {
             const company = await Company.findByPk(req.params.id);
             const users = await User.findAll({
+
                 where: {
                     company_id: company.id
                 }
             });
             const poll = await Poll.findAll({
+
                 where: {
                     company_id: company.id
                 },
@@ -41,14 +33,17 @@ export class Controller extends ApiController {
             });
 
             const likes = await Like.findAll({
+
                 where: { company_id: company.id }
             })
 
             const comment = await Comment.findAll({
+
                 where: { company_id: company.id }
             })
 
             const club = await Club.findAll({
+
                 where: { company_id: company.id },
                 include: [{ model: ClubMember }]
             })
@@ -75,14 +70,7 @@ export class Controller extends ApiController {
         }
     }
 
-    async show(req: Request, res: Response): Promise<void> {
-        try {
-            const item = await Company.findByPk(req.params.id);
-            super.found(req, res, item);
-        } catch (e) {
-            super.error(req, res, 'could not find user', e);
-        }
-    }
+
 
     async compnayList(req: Request, res: Response): Promise<void> {
         try {
@@ -124,11 +112,9 @@ export class Controller extends ApiController {
                 const post = await Post.findAll({
                     where: { company_id: company.id }
                 })
-
                 const lunchroulette = await Lunchroulette.findAll({
                     where: { company_id: company.id }
                 })
-
                 const poll = await Poll.findAll({
                     where: { company_id: company.id },
                     include: [{ model: PollAnswer }]
@@ -137,13 +123,11 @@ export class Controller extends ApiController {
                 for (const pol of poll) {
                     answers.push(pol.Answers)
                 }
-
                 const pollanswer = await PollAnswer.findAll({
                     where: {
                         company_id: company.id
                     }
                 });
-
                 // Calcul du taux d'activité du reseau social pour chaque entreprise
                 let socialmedia = {
                     nblike: null,
@@ -159,7 +143,6 @@ export class Controller extends ApiController {
                     nbcompanies: null,
                     nbUsers: null,
                 }
-
                 socialmedia.nbUsers = companyUsers.length;
                 socialmedia.nbcompanies = companies.length;
                 socialmedia.nblike = likes.length;
@@ -171,7 +154,6 @@ export class Controller extends ApiController {
                 socialmedia.nbpollanswer = pollanswer.length;
                 socialmedia.nblunch = lunchroulette.length;
                 // Création d'un objet correspond au détails à afficher sur l'app angular
-
                 let companyInfo = {
                     name: null,
                     userAmount: null,
@@ -183,7 +165,6 @@ export class Controller extends ApiController {
                     nbPolls: null,
                     pollAnswersRate: null
                 }
-
                 // Attribution du nom de la société
 
                 let dateDebut = company.created_at.getTime();

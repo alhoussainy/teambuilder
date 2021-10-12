@@ -8,3 +8,4 @@ export default express
     .post('/create', controller.create)
     .put('/:id/update', controller.update)
     .delete('/:id/delete', controller.delete)
+    .post('/upload', controller.imageUpload)

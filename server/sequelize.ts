@@ -100,6 +100,12 @@ import { PRHCI_Process } from './api/models/PRHCI_Process';
 import { PRHCI_ProcessAnswers } from './api/models/PRHCI_ProcessAnswers';
 import { PRHCI_QuestionOption } from './api/models/PRHCI_QuestionOption';
 import { BlogArticle } from './api/models/BlogArticle';
+import { PublicTest } from './api/models/PublicTest';
+import { PublicTestAnswer } from './api/models/PublicTestAnswer';
+import { PublicTestQualityFeedback } from './api/models/PublicTestQualityFeedback';
+import { PublicTestTrimojiFeedback } from './api/models/PublicTestTrimojiFeedback';
+import { PublicTestReferal } from './api/models/PublicTestReferal';
+import { PublicTestEmails } from './api/models/PublicTestEmails';
 
 const sequelize = new Sequelize({
     repositoryMode: false,
@@ -113,7 +119,7 @@ const sequelize = new Sequelize({
         charset: 'utf8',
         collate: 'utf8_general_ci',
     }
-    // models: [__dirname + '/api/models'],
+
 });
 
 sequelize.addModels([
@@ -149,6 +155,12 @@ sequelize.addModels([
     PersonalityQuizzUserAnswers,
     CompanyPersonalityTest,
     PersonalityQuizzWebAnswers,
+    PublicTest,
+    PublicTestAnswer,
+    PublicTestQualityFeedback,
+    PublicTestTrimojiFeedback,
+    PublicTestReferal,
+    PublicTestEmails,
     Skills,
     ContractType,
     Hobbies,
@@ -219,5 +231,4 @@ sequelize.addModels([
 
 
 ]);
-
 export default sequelize;
